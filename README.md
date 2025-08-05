@@ -24,7 +24,6 @@ import Aries from 'ariestestingmcp';
 
 const client = new Aries({
   apiKey: process.env['ARIES_API_KEY_AUTH'], // This is the default and can be omitted
-  bearerKey: process.env['ARIES_API_KEY'], // This is the default and can be omitted
 });
 
 const user = await client.users.create({ country: 'BfX', email: 'dev@stainless.com', password: 'xxxxxxxx' });
@@ -42,7 +41,6 @@ import Aries from 'ariestestingmcp';
 
 const client = new Aries({
   apiKey: process.env['ARIES_API_KEY_AUTH'], // This is the default and can be omitted
-  bearerKey: process.env['ARIES_API_KEY'], // This is the default and can be omitted
 });
 
 const params: Aries.UserCreateParams = { country: 'BfX', email: 'dev@stainless.com', password: 'xxxxxxxx' };

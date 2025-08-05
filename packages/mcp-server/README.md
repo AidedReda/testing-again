@@ -175,7 +175,7 @@ The following tools are available in this MCP server.
 
 - `retrieve_users_me` (`read`): Gets the currently authenticated user's information.
 - `update_users_me` (`write`): Updates the currently authenticated user. Supports partial updates including account application data.
-- `list_accounts_users_me` (`read`): Gets the currently authenticated user's trading accounts.
+- `list_accounts_users_me` (`read`): Retrieve all trading accounts for the currently authenticated user
 
 ### Resource `health`:
 
