@@ -55,12 +55,12 @@ $ cd testing-again
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link ariestesting
+$ yarn link ariestestingmcp
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global ariestesting
+$ pnpm link -—global ariestestingmcp
 ```
 
 ## Running tests

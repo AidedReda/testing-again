@@ -1,5 +1,5 @@
-import { multipartFormRequestOptions, createForm } from 'ariestesting/internal/uploads';
-import { toFile } from 'ariestesting/core/uploads';
+import { multipartFormRequestOptions, createForm } from 'ariestestingmcp/internal/uploads';
+import { toFile } from 'ariestestingmcp/core/uploads';
 
 describe('form data validation', () => {
   test('valid values do not error', async () => {

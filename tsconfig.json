@@ -9,8 +9,8 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "ariestesting/*": ["src/*"],
-      "ariestesting": ["src/index.ts"]
+      "ariestestingmcp/*": ["src/*"],
+      "ariestestingmcp": ["src/index.ts"]
     },
     "noEmit": true,
 
