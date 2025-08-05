@@ -1,4 +1,4 @@
-import { createPathTagFunction, encodeURIPath } from 'aries/internal/utils/path';
+import { createPathTagFunction, encodeURIPath } from 'ariestestingmcp/internal/utils/path';
 import { inspect } from 'node:util';
 import { runInNewContext } from 'node:vm';
 

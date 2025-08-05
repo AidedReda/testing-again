@@ -1,4 +1,4 @@
-import Aries from 'aries';
+import Aries from 'ariestestingmcp';
 import { Endpoint, asTextContentResult, ToolCallResult } from './tools/types';
 import { zodToJsonSchema } from 'zod-to-json-schema';
 import { z } from 'zod';

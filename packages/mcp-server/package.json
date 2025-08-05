@@ -1,6 +1,6 @@
 {
   "name": "ariesmcpsuperfinalfinal",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "The official MCP Server for the Aries API",
   "author": "Aries <dev@aries.com>",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "fix": "eslint --fix --ext ts,js ."
   },
   "dependencies": {
-    "aries": "file:../../dist/",
+    "ariestestingmcp": "file:../../dist/",
     "@modelcontextprotocol/sdk": "^1.11.5",
     "express": "^5.1.0",
     "jq-web": "https://github.com/stainless-api/jq-web/releases/download/v0.8.2/jq-web.tar.gz",
