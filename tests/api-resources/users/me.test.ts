@@ -2,10 +2,7 @@
 
 import Aries from 'aries';
 
-const client = new Aries({
-  apiKey: 'My API Key',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const client = new Aries({ baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010' });
 
 describe('resource me', () => {
   // skipped: tests are disabled for the time being

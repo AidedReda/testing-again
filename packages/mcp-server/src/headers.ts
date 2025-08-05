@@ -10,15 +10,15 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
     const value = req.headers.authorization.slice(scheme.length + 1);
     switch (scheme) {
       case 'Bearer':
-        return { apiKey: req.headers.authorization.slice('Bearer '.length) };
+        return { bearerKey: req.headers.authorization.slice('Bearer '.length) };
       default:
         throw new Error(`Unsupported authorization scheme`);
     }
   }
 
-  const apiKey =
+  const bearerKey =
     req.headers['x-aries-api-key'] instanceof Array ?
       req.headers['x-aries-api-key'][0]
     : req.headers['x-aries-api-key'];
-  return { apiKey };
+  return { bearerKey };
 };

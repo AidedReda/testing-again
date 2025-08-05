@@ -35,7 +35,7 @@ export interface ClientOptions {
   /**
    * Defaults to process.env['ARIES_API_KEY'].
    */
-  apiKey?: string | null | undefined;
+  bearerKey?: string | null | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
@@ -110,7 +110,7 @@ export interface ClientOptions {
  * API Client for interfacing with the Aries API.
  */
 export class Aries {
-  apiKey: string | null;
+  bearerKey: string | null;
 
   baseURL: string;
   maxRetries: number;
@@ -127,7 +127,7 @@ export class Aries {
   /**
    * API Client for interfacing with the Aries API.
    *
-   * @param {string | null | undefined} [opts.apiKey=process.env['ARIES_API_KEY'] ?? null]
+   * @param {string | null | undefined} [opts.bearerKey=process.env['ARIES_API_KEY'] ?? null]
    * @param {string} [opts.baseURL=process.env['ARIES_BASE_URL'] ?? https://api.tradearies.dev] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
@@ -138,11 +138,11 @@ export class Aries {
    */
   constructor({
     baseURL = readEnv('ARIES_BASE_URL'),
-    apiKey = readEnv('ARIES_API_KEY') ?? null,
+    bearerKey = readEnv('ARIES_API_KEY') ?? null,
     ...opts
   }: ClientOptions = {}) {
     const options: ClientOptions = {
-      apiKey,
+      bearerKey,
       ...opts,
       baseURL: baseURL || `https://api.tradearies.dev`,
     };
@@ -164,7 +164,7 @@ export class Aries {
 
     this._options = options;
 
-    this.apiKey = apiKey;
+    this.bearerKey = bearerKey;
   }
 
   /**
@@ -180,7 +180,7 @@ export class Aries {
       logLevel: this.logLevel,
       fetch: this.fetch,
       fetchOptions: this.fetchOptions,
-      apiKey: this.apiKey,
+      bearerKey: this.bearerKey,
       ...options,
     });
     return client;
@@ -198,7 +198,7 @@ export class Aries {
   }
 
   protected validateHeaders({ values, nulls }: NullableHeaders) {
-    if (this.apiKey && values.get('authorization')) {
+    if (this.bearerKey && values.get('authorization')) {
       return;
     }
     if (nulls.has('authorization')) {
@@ -206,15 +206,15 @@ export class Aries {
     }
 
     throw new Error(
-      'Could not resolve authentication method. Expected the apiKey to be set. Or for the "Authorization" headers to be explicitly omitted',
+      'Could not resolve authentication method. Expected the bearerKey to be set. Or for the "Authorization" headers to be explicitly omitted',
     );
   }
 
   protected async authHeaders(opts: FinalRequestOptions): Promise<NullableHeaders | undefined> {
-    if (this.apiKey == null) {
+    if (this.bearerKey == null) {
       return undefined;
     }
-    return buildHeaders([{ Authorization: `Bearer ${this.apiKey}` }]);
+    return buildHeaders([{ Authorization: `Bearer ${this.bearerKey}` }]);
   }
 
   /**

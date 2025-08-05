@@ -19,7 +19,7 @@ cd aries-typescript
 
 ```sh
 # set env vars as needed
-export ARIES_API_KEY="My API Key"
+export ARIES_API_KEY="My Bearer Key"
 node ./packages/mcp-server/dist/index.js
 ```
 
@@ -42,7 +42,7 @@ For clients with a configuration JSON, it might look something like this:
       "command": "node",
       "args": ["/path/to/local/aries-typescript/packages/mcp-server", "--client=claude", "--tools=all"],
       "env": {
-        "ARIES_API_KEY": "My API Key"
+        "ARIES_API_KEY": "My Bearer Key"
       }
     }
   }
