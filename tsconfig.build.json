@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "ariestestingmcp/*": ["dist/src/*"],
-      "ariestestingmcp": ["dist/src/index.ts"]
+      "ariestesting/*": ["dist/src/*"],
+      "ariestesting": ["dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
