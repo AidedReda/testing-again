@@ -9,8 +9,8 @@ It is generated with [Stainless](https://www.stainless.com/).
 Because it's not published yet, clone the repo and build it:
 
 ```sh
-git clone git@github.com:stainless-sdks/aries-typescript.git
-cd aries-typescript
+git clone git@github.com:AidedReda/testing-again.git
+cd testing-again
 ./scripts/bootstrap
 ./scripts/build
 ```
@@ -41,7 +41,7 @@ For clients with a configuration JSON, it might look something like this:
   "mcpServers": {
     "aries_api": {
       "command": "node",
-      "args": ["/path/to/local/aries-typescript/packages/mcp-server", "--client=claude", "--tools=all"],
+      "args": ["/path/to/local/testing-again/packages/mcp-server", "--client=claude", "--tools=all"],
       "env": {
         "ARIES_API_KEY": "My Bearer Key",
         "ARIES_API_KEY_AUTH": "My API Key"
