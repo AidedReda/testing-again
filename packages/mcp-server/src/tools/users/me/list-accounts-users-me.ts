@@ -4,7 +4,7 @@ import { maybeFilter } from 'ariesmcpsuperfinalfinal/filtering';
 import { Metadata, asTextContentResult } from 'ariesmcpsuperfinalfinal/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import Aries from 'ariestestingmcp';
+import Aries from 'ariestesting';
 
 export const metadata: Metadata = {
   resource: 'users.me',

@@ -1,10 +1,10 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { APIPromise } from 'ariestestingmcp/core/api-promise';
+import { APIPromise } from 'ariestesting/core/api-promise';
 
 import util from 'node:util';
-import Aries from 'ariestestingmcp';
-import { APIUserAbortError } from 'ariestestingmcp';
+import Aries from 'ariestesting';
+import { APIUserAbortError } from 'ariestesting';
 const defaultFetch = fetch;
 
 describe('instantiate client', () => {

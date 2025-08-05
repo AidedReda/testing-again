@@ -4,8 +4,8 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { Endpoint, endpoints, HandlerFunction, query } from './tools';
 import { CallToolRequestSchema, ListToolsRequestSchema, Tool } from '@modelcontextprotocol/sdk/types.js';
-import { ClientOptions } from 'ariestestingmcp';
-import Aries from 'ariestestingmcp';
+import { ClientOptions } from 'ariestesting';
+import Aries from 'ariestesting';
 import {
   applyCompatibilityTransformations,
   ClientCapabilities,
@@ -19,13 +19,13 @@ import { McpOptions } from './options';
 export { McpOptions } from './options';
 export { ClientType } from './compat';
 export { Filter } from './tools';
-export { ClientOptions } from 'ariestestingmcp';
+export { ClientOptions } from 'ariestesting';
 export { endpoints } from './tools';
 
 export const newMcpServer = () =>
   new McpServer(
     {
-      name: 'ariestestingmcp_api',
+      name: 'ariestesting_api',
       version: '0.1.0-alpha.2',
     },
     { capabilities: { tools: {}, logging: {} } },

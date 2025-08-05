@@ -1,6 +1,6 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Aries } from 'ariestestingmcp';
+import { Aries } from 'ariestesting';
 
 const { stringifyQuery } = Aries.prototype as any;
 

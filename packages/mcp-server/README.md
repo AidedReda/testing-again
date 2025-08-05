@@ -24,7 +24,7 @@ For clients with a configuration JSON, it might look something like this:
 ```json
 {
   "mcpServers": {
-    "ariestestingmcp_api": {
+    "ariestesting_api": {
       "command": "npx",
       "args": ["-y", "ariesmcpsuperfinalfinal", "--client=claude", "--tools=all"],
       "env": {
