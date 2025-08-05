@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0-alpha.3 (2025-08-05)
+
+Full Changelog: [v0.1.0-alpha.2...v0.1.0-alpha.3](https://github.com/AidedReda/testing-again/compare/v0.1.0-alpha.2...v0.1.0-alpha.3)
+
+### Chores
+
+* update SDK settings ([c28e308](https://github.com/AidedReda/testing-again/commit/c28e308f8a1da924d501b3b9711f1c68ef1455da))
+
 ## 0.1.0-alpha.2 (2025-08-05)
 
 Full Changelog: [v0.1.0-alpha.1...v0.1.0-alpha.2](https://github.com/AidedReda/testing-again/compare/v0.1.0-alpha.1...v0.1.0-alpha.2)
