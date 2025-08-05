@@ -1,4 +1,4 @@
-# Testingariesmcp TypeScript MCP Server
+# Aries TypeScript MCP Server
 
 It is generated with [Stainless](https://www.stainless.com/).
 
@@ -9,8 +9,8 @@ It is generated with [Stainless](https://www.stainless.com/).
 Because it's not published yet, clone the repo and build it:
 
 ```sh
-git clone git@github.com:AidedReda/testingmcp.git
-cd testingmcp
+git clone git@github.com:stainless-sdks/aries-typescript.git
+cd aries-typescript
 ./scripts/bootstrap
 ./scripts/build
 ```
@@ -19,13 +19,13 @@ cd testingmcp
 
 ```sh
 # set env vars as needed
-export TESTINGARIESMCP_BEARER_TOKEN="My Bearer Token"
-export TESTINGARIESMCP_API_KEY="My API Key"
+export ARIES_API_KEY="My Bearer Key"
+export ARIES_API_KEY_AUTH="My API Key"
 node ./packages/mcp-server/dist/index.js
 ```
 
 > [!NOTE]
-> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npx -y testingariesmcp`
+> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npx -y ariesmcpsuperfinalfinal`
 
 ### Via MCP Client
 
@@ -39,12 +39,12 @@ For clients with a configuration JSON, it might look something like this:
 ```json
 {
   "mcpServers": {
-    "testingariesmcp_api": {
+    "aries_api": {
       "command": "node",
-      "args": ["/path/to/local/testingmcp/packages/mcp-server", "--client=claude", "--tools=all"],
+      "args": ["/path/to/local/aries-typescript/packages/mcp-server", "--client=claude", "--tools=all"],
       "env": {
-        "TESTINGARIESMCP_BEARER_TOKEN": "My Bearer Token",
-        "TESTINGARIESMCP_API_KEY": "My API Key"
+        "ARIES_API_KEY": "My Bearer Key",
+        "ARIES_API_KEY_AUTH": "My API Key"
       }
     }
   }
@@ -147,10 +147,10 @@ over time, you can manually enable or disable certain capabilities:
 
 ```js
 // Import the server, generated endpoints, or the init function
-import { server, endpoints, init } from "testingariesmcp/server";
+import { server, endpoints, init } from "ariesmcpsuperfinalfinal/server";
 
 // import a specific tool
-import createUsers from "testingariesmcp/tools/users/create-users";
+import createUsers from "ariesmcpsuperfinalfinal/tools/users/create-users";
 
 // initialize the server and all endpoints
 init({ server, endpoints });

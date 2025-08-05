@@ -9,8 +9,8 @@
     "esModuleInterop": true,
     "baseUrl": "./",
     "paths": {
-      "testingariesmcp/*": ["src/*"],
-      "testingariesmcp": ["src/index.ts"]
+      "ariesmcpsuperfinalfinal/*": ["src/*"],
+      "ariesmcpsuperfinalfinal": ["src/index.ts"]
     },
     "noEmit": true,
 

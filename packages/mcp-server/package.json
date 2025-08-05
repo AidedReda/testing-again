@@ -1,17 +1,17 @@
 {
-  "name": "testingariesmcp",
-  "version": "0.1.0-alpha.1",
-  "description": "The official MCP Server for the Testingariesmcp API",
-  "author": "Testingariesmcp <dev@aries.com>",
+  "name": "ariesmcpsuperfinalfinal",
+  "version": "0.0.1-alpha.0",
+  "description": "The official MCP Server for the Aries API",
+  "author": "Aries <dev@aries.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AidedReda/testingmcp.git",
+    "url": "git+https://github.com/stainless-sdks/aries-typescript.git",
     "directory": "packages/mcp-server"
   },
-  "homepage": "https://github.com/AidedReda/testingmcp/tree/main/packages/mcp-server#readme",
+  "homepage": "https://github.com/stainless-sdks/aries-typescript/tree/main/packages/mcp-server#readme",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "private": false,
@@ -27,7 +27,7 @@
     "fix": "eslint --fix --ext ts,js ."
   },
   "dependencies": {
-    "testingariesmcp": "file:../../dist/",
+    "aries": "file:../../dist/",
     "@modelcontextprotocol/sdk": "^1.11.5",
     "express": "^5.1.0",
     "jq-web": "https://github.com/stainless-api/jq-web/releases/download/v0.8.2/jq-web.tar.gz",
@@ -57,8 +57,8 @@
     "typescript": "5.8.3"
   },
   "imports": {
-    "testingariesmcp": ".",
-    "testingariesmcp/*": "./src/*"
+    "ariesmcpsuperfinalfinal": ".",
+    "ariesmcpsuperfinalfinal/*": "./src/*"
   },
   "exports": {
     ".": {

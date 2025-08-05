@@ -1,11 +1,11 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import type { Testingariesmcp } from '../client';
+import type { Aries } from '../client';
 
 export abstract class APIResource {
-  protected _client: Testingariesmcp;
+  protected _client: Aries;
 
-  constructor(client: Testingariesmcp) {
+  constructor(client: Aries) {
     this._client = client;
   }
 }

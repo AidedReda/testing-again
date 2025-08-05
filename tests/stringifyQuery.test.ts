@@ -1,8 +1,8 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Testingariesmcp } from 'testingariesmcp';
+import { Aries } from 'aries';
 
-const { stringifyQuery } = Testingariesmcp.prototype as any;
+const { stringifyQuery } = Aries.prototype as any;
 
 describe(stringifyQuery, () => {
   for (const [input, expected] of [

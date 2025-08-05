@@ -16,9 +16,9 @@ before making any information public.
 ## Reporting Non-SDK Related Security Issues
 
 If you encounter security issues that are not directly related to SDKs but pertain to the services
-or products provided by Testingariesmcp, please follow the respective company's security reporting guidelines.
+or products provided by Aries, please follow the respective company's security reporting guidelines.
 
-### Testingariesmcp Terms and Policies
+### Aries Terms and Policies
 
 Please contact dev@aries.com for any questions or concerns regarding the security of our services.
 
