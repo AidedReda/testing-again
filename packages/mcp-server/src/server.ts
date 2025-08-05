@@ -4,8 +4,8 @@ import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { Endpoint, endpoints, HandlerFunction, query } from './tools';
 import { CallToolRequestSchema, ListToolsRequestSchema, Tool } from '@modelcontextprotocol/sdk/types.js';
-import { ClientOptions } from 'testingariesmcp';
-import Testingariesmcp from 'testingariesmcp';
+import { ClientOptions } from 'aries';
+import Aries from 'aries';
 import {
   applyCompatibilityTransformations,
   ClientCapabilities,
@@ -19,13 +19,13 @@ import { McpOptions } from './options';
 export { McpOptions } from './options';
 export { ClientType } from './compat';
 export { Filter } from './tools';
-export { ClientOptions } from 'testingariesmcp';
+export { ClientOptions } from 'aries';
 export { endpoints } from './tools';
 
 export const newMcpServer = () =>
   new McpServer(
     {
-      name: 'testingariesmcp_api',
+      name: 'aries_api',
       version: '0.1.0-alpha.1',
     },
     { capabilities: { tools: {}, logging: {} } },
@@ -45,7 +45,7 @@ export function initMcpServer(params: {
   endpoints?: { tool: Tool; handler: HandlerFunction }[];
 }) {
   const transformedEndpoints = selectTools(endpoints, params.mcpOptions);
-  const client = new Testingariesmcp(params.clientOptions);
+  const client = new Aries(params.clientOptions);
   const capabilities = {
     ...defaultClientCapabilities,
     ...(params.mcpOptions.client ? knownClients[params.mcpOptions.client] : params.mcpOptions.capabilities),
@@ -55,7 +55,7 @@ export function initMcpServer(params: {
 
 export function init(params: {
   server: Server | McpServer;
-  client?: Testingariesmcp;
+  client?: Aries;
   endpoints?: { tool: Tool; handler: HandlerFunction }[];
   capabilities?: Partial<ClientCapabilities>;
 }) {
@@ -81,7 +81,7 @@ export function init(params: {
   };
 
   const client =
-    params.client || new Testingariesmcp({ defaultHeaders: { 'X-Stainless-MCP': 'true' }, logger: logger });
+    params.client || new Aries({ defaultHeaders: { 'X-Stainless-MCP': 'true' }, logger: logger });
 
   server.setRequestHandler(ListToolsRequestSchema, async () => {
     return {
@@ -132,7 +132,7 @@ export function selectTools(endpoints: Endpoint[], options: McpOptions): Endpoin
 export async function executeHandler(
   tool: Tool,
   handler: HandlerFunction,
-  client: Testingariesmcp,
+  client: Aries,
   args: Record<string, unknown> | undefined,
   compatibilityOptions?: Partial<ClientCapabilities>,
 ) {

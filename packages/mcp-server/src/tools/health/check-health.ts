@@ -1,9 +1,9 @@
 // File generated from our OpenAPI spec by Stainless. See CONTRIBUTING.md for details.
 
-import { Metadata, asTextContentResult } from 'testingariesmcp/tools/types';
+import { Metadata, asTextContentResult } from 'ariesmcpsuperfinalfinal/tools/types';
 
 import { Tool } from '@modelcontextprotocol/sdk/types.js';
-import Testingariesmcp from 'testingariesmcp';
+import Aries from 'aries';
 
 export const metadata: Metadata = {
   resource: 'health',
@@ -27,7 +27,7 @@ export const tool: Tool = {
   },
 };
 
-export const handler = async (client: Testingariesmcp, args: Record<string, unknown> | undefined) => {
+export const handler = async (client: Aries, args: Record<string, unknown> | undefined) => {
   const response = await client.health.check().asResponse();
   return asTextContentResult(await response.text());
 };

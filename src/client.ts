@@ -33,19 +33,19 @@ import { isEmptyObj } from './internal/utils/values';
 
 export interface ClientOptions {
   /**
-   * Defaults to process.env['TESTINGARIESMCP_BEARER_TOKEN'].
+   * Defaults to process.env['ARIES_API_KEY'].
    */
-  bearerToken?: string | null | undefined;
+  bearerKey?: string | null | undefined;
 
   /**
-   * Defaults to process.env['TESTINGARIESMCP_API_KEY'].
+   * Defaults to process.env['ARIES_API_KEY_AUTH'].
    */
   apiKey?: string | null | undefined;
 
   /**
    * Override the default base URL for the API, e.g., "https://api.example.com/v2/"
    *
-   * Defaults to process.env['TESTINGARIESMCP_BASE_URL'].
+   * Defaults to process.env['ARIES_BASE_URL'].
    */
   baseURL?: string | null | undefined;
 
@@ -99,7 +99,7 @@ export interface ClientOptions {
   /**
    * Set the log level.
    *
-   * Defaults to process.env['TESTINGARIESMCP_LOG'] or 'warn' if it isn't set.
+   * Defaults to process.env['ARIES_LOG'] or 'warn' if it isn't set.
    */
   logLevel?: LogLevel | undefined;
 
@@ -112,10 +112,10 @@ export interface ClientOptions {
 }
 
 /**
- * API Client for interfacing with the Testingariesmcp API.
+ * API Client for interfacing with the Aries API.
  */
-export class Testingariesmcp {
-  bearerToken: string | null;
+export class Aries {
+  bearerKey: string | null;
   apiKey: string | null;
 
   baseURL: string;
@@ -131,11 +131,11 @@ export class Testingariesmcp {
   private _options: ClientOptions;
 
   /**
-   * API Client for interfacing with the Testingariesmcp API.
+   * API Client for interfacing with the Aries API.
    *
-   * @param {string | null | undefined} [opts.bearerToken=process.env['TESTINGARIESMCP_BEARER_TOKEN'] ?? null]
-   * @param {string | null | undefined} [opts.apiKey=process.env['TESTINGARIESMCP_API_KEY'] ?? null]
-   * @param {string} [opts.baseURL=process.env['TESTINGARIESMCP_BASE_URL'] ?? https://api.tradearies.dev] - Override the default base URL for the API.
+   * @param {string | null | undefined} [opts.bearerKey=process.env['ARIES_API_KEY'] ?? null]
+   * @param {string | null | undefined} [opts.apiKey=process.env['ARIES_API_KEY_AUTH'] ?? null]
+   * @param {string} [opts.baseURL=process.env['ARIES_BASE_URL'] ?? https://api.tradearies.dev] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -144,27 +144,27 @@ export class Testingariesmcp {
    * @param {Record<string, string | undefined>} opts.defaultQuery - Default query parameters to include with every request to the API.
    */
   constructor({
-    baseURL = readEnv('TESTINGARIESMCP_BASE_URL'),
-    bearerToken = readEnv('TESTINGARIESMCP_BEARER_TOKEN') ?? null,
-    apiKey = readEnv('TESTINGARIESMCP_API_KEY') ?? null,
+    baseURL = readEnv('ARIES_BASE_URL'),
+    bearerKey = readEnv('ARIES_API_KEY') ?? null,
+    apiKey = readEnv('ARIES_API_KEY_AUTH') ?? null,
     ...opts
   }: ClientOptions = {}) {
     const options: ClientOptions = {
-      bearerToken,
+      bearerKey,
       apiKey,
       ...opts,
       baseURL: baseURL || `https://api.tradearies.dev`,
     };
 
     this.baseURL = options.baseURL!;
-    this.timeout = options.timeout ?? Testingariesmcp.DEFAULT_TIMEOUT /* 1 minute */;
+    this.timeout = options.timeout ?? Aries.DEFAULT_TIMEOUT /* 1 minute */;
     this.logger = options.logger ?? console;
     const defaultLogLevel = 'warn';
     // Set default logLevel early so that we can log a warning in parseLogLevel.
     this.logLevel = defaultLogLevel;
     this.logLevel =
       parseLogLevel(options.logLevel, 'ClientOptions.logLevel', this) ??
-      parseLogLevel(readEnv('TESTINGARIESMCP_LOG'), "process.env['TESTINGARIESMCP_LOG']", this) ??
+      parseLogLevel(readEnv('ARIES_LOG'), "process.env['ARIES_LOG']", this) ??
       defaultLogLevel;
     this.fetchOptions = options.fetchOptions;
     this.maxRetries = options.maxRetries ?? 2;
@@ -173,7 +173,7 @@ export class Testingariesmcp {
 
     this._options = options;
 
-    this.bearerToken = bearerToken;
+    this.bearerKey = bearerKey;
     this.apiKey = apiKey;
   }
 
@@ -190,7 +190,7 @@ export class Testingariesmcp {
       logLevel: this.logLevel,
       fetch: this.fetch,
       fetchOptions: this.fetchOptions,
-      bearerToken: this.bearerToken,
+      bearerKey: this.bearerKey,
       apiKey: this.apiKey,
       ...options,
     });
@@ -209,7 +209,7 @@ export class Testingariesmcp {
   }
 
   protected validateHeaders({ values, nulls }: NullableHeaders) {
-    if (this.bearerToken && values.get('authorization')) {
+    if (this.bearerKey && values.get('authorization')) {
       return;
     }
     if (nulls.has('authorization')) {
@@ -224,7 +224,7 @@ export class Testingariesmcp {
     }
 
     throw new Error(
-      'Could not resolve authentication method. Expected either bearerToken or apiKey to be set. Or for one of the "Authorization" or "X-API-Key" headers to be explicitly omitted',
+      'Could not resolve authentication method. Expected either bearerKey or apiKey to be set. Or for one of the "Authorization" or "X-API-Key" headers to be explicitly omitted',
     );
   }
 
@@ -233,10 +233,10 @@ export class Testingariesmcp {
   }
 
   protected async bearerAuth(opts: FinalRequestOptions): Promise<NullableHeaders | undefined> {
-    if (this.bearerToken == null) {
+    if (this.bearerKey == null) {
       return undefined;
     }
-    return buildHeaders([{ Authorization: `Bearer ${this.bearerToken}` }]);
+    return buildHeaders([{ Authorization: `Bearer ${this.bearerKey}` }]);
   }
 
   protected async apiKeyAuth(opts: FinalRequestOptions): Promise<NullableHeaders | undefined> {
@@ -259,7 +259,7 @@ export class Testingariesmcp {
         if (value === null) {
           return `${encodeURIComponent(key)}=`;
         }
-        throw new Errors.TestingariesmcpError(
+        throw new Errors.AriesError(
           `Cannot stringify type ${typeof value}; Expected string, number, boolean, or null. If you need to pass nested query parameters, you can manually encode them, e.g. { query: { 'foo[key1]': value1, 'foo[key2]': value2 } }, and please open a GitHub issue requesting better support for your use case.`,
         );
       })
@@ -731,10 +731,10 @@ export class Testingariesmcp {
     }
   }
 
-  static Testingariesmcp = this;
+  static Aries = this;
   static DEFAULT_TIMEOUT = 60000; // 1 minute
 
-  static TestingariesmcpError = Errors.TestingariesmcpError;
+  static AriesError = Errors.AriesError;
   static APIError = Errors.APIError;
   static APIConnectionError = Errors.APIConnectionError;
   static APIConnectionTimeoutError = Errors.APIConnectionTimeoutError;
@@ -753,9 +753,9 @@ export class Testingariesmcp {
   users: API.Users = new API.Users(this);
   health: API.Health = new API.Health(this);
 }
-Testingariesmcp.Users = Users;
-Testingariesmcp.Health = Health;
-export declare namespace Testingariesmcp {
+Aries.Users = Users;
+Aries.Health = Health;
+export declare namespace Aries {
   export type RequestOptions = Opts.RequestOptions;
 
   export {

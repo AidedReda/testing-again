@@ -42,25 +42,25 @@ If you’d like to use the repository from source, you can either install from g
 To install via git:
 
 ```sh
-$ npm install git+ssh://git@github.com:AidedReda/testingmcp.git
+$ npm install git+ssh://git@github.com:AidedReda/testing-again.git
 ```
 
 Alternatively, to link a local copy of the repo:
 
 ```sh
 # Clone
-$ git clone https://www.github.com/AidedReda/testingmcp
-$ cd testingmcp
+$ git clone https://www.github.com/AidedReda/testing-again
+$ cd testing-again
 
 # With yarn
 $ yarn link
 $ cd ../my-package
-$ yarn link testingariesmcp
+$ yarn link aries
 
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global testingariesmcp
+$ pnpm link -—global aries
 ```
 
 ## Running tests

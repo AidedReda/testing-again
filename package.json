@@ -1,12 +1,12 @@
 {
-  "name": "testingariesmcp",
+  "name": "aries",
   "version": "0.1.0-alpha.1",
-  "description": "The official TypeScript library for the Testingariesmcp API",
-  "author": "Testingariesmcp <dev@aries.com>",
+  "description": "The official TypeScript library for the Aries API",
+  "author": "Aries <dev@aries.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",
-  "repository": "github:AidedReda/testingmcp",
+  "repository": "github:AidedReda/testing-again",
   "license": "Apache-2.0",
   "packageManager": "yarn@1.22.22",
   "files": [

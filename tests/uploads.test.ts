@@ -1,6 +1,6 @@
 import fs from 'fs';
-import type { ResponseLike } from 'testingariesmcp/internal/to-file';
-import { toFile } from 'testingariesmcp/core/uploads';
+import type { ResponseLike } from 'aries/internal/to-file';
+import { toFile } from 'aries/core/uploads';
 import { File } from 'node:buffer';
 
 class MyClass {
@@ -97,7 +97,7 @@ describe('missing File error message', () => {
   });
 
   test('is thrown', async () => {
-    const uploads = await import('testingariesmcp/core/uploads');
+    const uploads = await import('aries/core/uploads');
     await expect(
       uploads.toFile(mockResponse({ url: 'https://example.com/my/audio.mp3' })),
     ).rejects.toMatchInlineSnapshot(
