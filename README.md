@@ -26,6 +26,7 @@ The full API of this library can be found in [api.md](api.md).
 import Aries from 'aries';
 
 const client = new Aries({
+  apiKey: process.env['ARIES_API_KEY_AUTH'], // This is the default and can be omitted
   bearerKey: process.env['ARIES_API_KEY'], // This is the default and can be omitted
 });
 
@@ -43,6 +44,7 @@ This library includes TypeScript definitions for all request params and response
 import Aries from 'aries';
 
 const client = new Aries({
+  apiKey: process.env['ARIES_API_KEY_AUTH'], // This is the default and can be omitted
   bearerKey: process.env['ARIES_API_KEY'], // This is the default and can be omitted
 });
 
