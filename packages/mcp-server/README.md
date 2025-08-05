@@ -4,32 +4,17 @@ It is generated with [Stainless](https://www.stainless.com/).
 
 ## Installation
 
-### Building
+### Direct invocation
 
-Because it's not published yet, clone the repo and build it:
-
-```sh
-git clone git@github.com:AidedReda/testing-again.git
-cd testing-again
-./scripts/bootstrap
-./scripts/build
-```
-
-### Running
+You can run the MCP Server directly via `npx`:
 
 ```sh
-# set env vars as needed
 export ARIES_API_KEY="My Bearer Key"
 export ARIES_API_KEY_AUTH="My API Key"
-node ./packages/mcp-server/dist/index.js
+npx -y ariesmcpsuperfinalfinal@latest
 ```
 
-> [!NOTE]
-> Once this package is [published to npm](https://www.stainless.com/docs/guides/publish), this will become: `npx -y ariesmcpsuperfinalfinal`
-
 ### Via MCP Client
-
-[Build the project](#building) as mentioned above.
 
 There is a partial list of existing clients at [modelcontextprotocol.io](https://modelcontextprotocol.io/clients). If you already
 have a client, consult their documentation to install the MCP server.
@@ -39,9 +24,9 @@ For clients with a configuration JSON, it might look something like this:
 ```json
 {
   "mcpServers": {
-    "aries_api": {
-      "command": "node",
-      "args": ["/path/to/local/testing-again/packages/mcp-server", "--client=claude", "--tools=all"],
+    "ariestestingmcp_api": {
+      "command": "npx",
+      "args": ["-y", "ariesmcpsuperfinalfinal", "--client=claude", "--tools=all"],
       "env": {
         "ARIES_API_KEY": "My Bearer Key",
         "ARIES_API_KEY_AUTH": "My API Key"
