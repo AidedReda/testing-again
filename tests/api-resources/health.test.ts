@@ -3,7 +3,7 @@
 import Aries from 'aries';
 
 const client = new Aries({
-  apiKeyAuth: 'My API Key Auth',
+  apiKey: 'My API Key',
   baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
 });
 
