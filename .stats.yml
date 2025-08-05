@@ -1,4 +1,4 @@
 configured_endpoints: 5
-openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/aries-com%2Faries-52e767b9b9d8f448a7519c527f13991ea08d2a1c7367455c6f5b6444285dd86e.yml
-openapi_spec_hash: a653655086a8ad2749101142718d13ea
+openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/aries-com%2Faries-62d728a19784e52672ebca2ebd5f8865105599c3f56ca4967a653a84264b4b65.yml
+openapi_spec_hash: 5140b1e3a82c78885078c675f6eacc15
 config_hash: 40096e13acb71d4bed30b84d87013bcf
