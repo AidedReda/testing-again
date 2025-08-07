@@ -21,6 +21,6 @@ export const parseAuthHeaders = (req: IncomingMessage): Partial<ClientOptions> =
       req.headers['x-aries-api-key'][0]
     : req.headers['x-aries-api-key'];
   const apiKey =
-    req.headers['X-API-Key'] instanceof Array ? req.headers['X-API-Key'][0] : req.headers['X-API-Key'];
+    req.headers['x-api-key'] instanceof Array ? req.headers['x-api-key'][0] : req.headers['x-api-key'];
   return { bearerKey, apiKey };
 };
