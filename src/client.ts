@@ -753,8 +753,10 @@ export class Aries {
   users: API.Users = new API.Users(this);
   health: API.Health = new API.Health(this);
 }
+
 Aries.Users = Users;
 Aries.Health = Health;
+
 export declare namespace Aries {
   export type RequestOptions = Opts.RequestOptions;
 
