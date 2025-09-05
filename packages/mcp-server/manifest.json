@@ -1,0 +1,49 @@
+{
+  "dxt_version": "0.1",
+  "name": "ariesmcpsuperfinalfinal",
+  "version": "0.1.0-alpha.3",
+  "description": "The official MCP Server for the Aries API",
+  "author": {
+    "name": "Aries",
+    "email": "dev@aries.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AidedReda/testing-again.git"
+  },
+  "homepage": "https://github.com/AidedReda/testing-again/tree/main/packages/mcp-server#readme",
+  "documentation": "",
+  "server": {
+    "type": "node",
+    "entry_point": "${__dirname}/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.js"],
+      "env": {
+        "ARIES_API_KEY": "${user_config.ARIES_API_KEY}",
+        "ARIES_API_KEY_AUTH": "${user_config.ARIES_API_KEY_AUTH}"
+      }
+    }
+  },
+  "user_config": {
+    "ARIES_API_KEY": {
+      "title": "bearer_key",
+      "description": "",
+      "required": false,
+      "type": "string"
+    },
+    "ARIES_API_KEY_AUTH": {
+      "title": "api_key",
+      "description": "",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "tools_generated": true,
+  "compatibility": {
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  },
+  "keywords": ["api"]
+}
