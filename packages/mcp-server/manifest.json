@@ -12,7 +12,6 @@
     "url": "git+https://github.com/AidedReda/testing-again.git"
   },
   "homepage": "https://github.com/AidedReda/testing-again/tree/main/packages/mcp-server#readme",
-  "documentation": "",
   "server": {
     "type": "node",
     "entry_point": "${__dirname}/index.js",
