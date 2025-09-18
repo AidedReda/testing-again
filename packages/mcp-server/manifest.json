@@ -1,5 +1,5 @@
 {
-  "dxt_version": "0.1",
+  "dxt_version": "0.2",
   "name": "ariesmcpsuperfinalfinal",
   "version": "0.1.0-alpha.3",
   "description": "The official MCP Server for the Aries API",
@@ -14,7 +14,7 @@
   "homepage": "https://github.com/AidedReda/testing-again/tree/main/packages/mcp-server#readme",
   "server": {
     "type": "node",
-    "entry_point": "${__dirname}/index.js",
+    "entry_point": "index.js",
     "mcp_config": {
       "command": "node",
       "args": ["${__dirname}/index.js"],
@@ -38,6 +38,7 @@
       "type": "string"
     }
   },
+  "tools": [],
   "tools_generated": true,
   "compatibility": {
     "runtimes": {
