@@ -40,10 +40,19 @@ export interface UserCreateResponse {
 
 export namespace UserCreateResponse {
   export interface Auth {
+    /**
+     * JWT access token
+     */
     access_token?: string;
 
+    /**
+     * JWT refresh token
+     */
     refresh_token?: string;
 
+    /**
+     * User role
+     */
     role?: string;
   }
 }

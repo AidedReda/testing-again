@@ -5,8 +5,8 @@
   "compilerOptions": {
     "rootDir": "./dist/src",
     "paths": {
-      "ariesmcpsuperfinalfinal/*": ["dist/src/*"],
-      "ariesmcpsuperfinalfinal": ["dist/src/index.ts"]
+      "ariesmcpsuperfinalfinal/*": ["./dist/src/*"],
+      "ariesmcpsuperfinalfinal": ["./dist/src/index.ts"]
     },
     "noEmit": false,
     "declaration": true,
