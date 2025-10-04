@@ -1,6 +1,6 @@
 {
   "name": "ariesmcpsuperfinalfinal",
-  "version": "0.1.0-alpha.3",
+  "version": "0.1.0-alpha.4",
   "description": "The official MCP Server for the Aries API",
   "author": "Aries <dev@aries.com>",
   "types": "dist/index.d.ts",
